@@ -1,0 +1,19 @@
+{
+    "name": "@jadesrochers/fpstreamline",
+    "version": "0.1.0",
+    "license": "Apache-2.0",
+    "author": "Jared Desrochers",
+    "repository": "",
+    "description": "Functional programming additions to pass arrays, manipulate data",
+    "main": "index.js",
+    "keywords": [],
+    "dependencies": {
+        "ramda": "^0.26.1"
+    },
+    "scripts": {
+        "test": "jest"
+    },
+    "devDependencies": {
+        "jest": "^24.5.0"
+    }
+}
