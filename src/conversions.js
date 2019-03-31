@@ -1,11 +1,11 @@
 const R = require('ramda')
 const {strSearchBool} = require('./strings')
 
-const isTypeof = type => input => (R.toLower(R.type(input)) === R.toLower(type))
+const isTypeof = R.curry((type,input) => (R.toLower(R.type(input)) === R.toLower(type)))
 
-const typeMatch = inputA => inputB => {
+const typeMatch = R.curry((inputA,inputB) => {
  return R.type(inputA) === R.type(inputB)
-}
+})
 
 const toJSON = input => JSON.parse(input)
 

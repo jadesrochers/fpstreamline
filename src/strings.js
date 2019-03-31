@@ -10,7 +10,7 @@ const regexEscapeAll = str => str.replace(/[-\/\\^$*+?.()|[\]{}]/g,'\\$&')
 
 const regexEscapeExPer = str => str.replace(/[-\/\\^$*+?()|[\]{}]/g,'\\$&')
 
-const toRegex = flags => str => (new RegExp(str, flags))
+const toRegex = R.curry((flags,str) => (new RegExp(str, flags)))
 
 const getRegex = R.pipe(
   regexEscapeExPer,
