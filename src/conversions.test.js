@@ -46,4 +46,11 @@ test('toDate test', () => {
   expect(fps.toDate('2018')).toEqual(new Date('2018'))
 })
 
+test('toArray test', () => {
+  expect(fps.toArray(5)).toEqual([5])
+  expect(fps.toArray('test string')).toEqual(['test string'])
+  expect(fps.toArray({a: 1})).toEqual([{a:1}])
+  expect(fps.toArray([1,2,3])).toEqual([1,2,3])
+})
+
 

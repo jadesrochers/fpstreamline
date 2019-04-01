@@ -20,11 +20,15 @@ const toDate = input => {
   return (new Date(input))
 }
 
+const toArray = input => {
+  return Array.isArray(input) ? input : Array.of(input)
+}
 
 exports.isTypeof = isTypeof
 exports.typeMatch = typeMatch
 exports.toJSON = toJSON
 exports.strToNum = strToNum
 exports.toDate = toDate
+exports.toArray = toArray
 
 
