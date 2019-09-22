@@ -14,8 +14,9 @@ const R = require('ramda')
 
 ## Usage
 
-## Pipe for async functions
-Allows sync or async functions to be piped together.
+## Piping async functions
+Allows async functions to be piped, and also handles regular functions.   
+Consider it a regular piping function that is also async tolerant.  
 ```javascript
 let testprom1 = n => Promise.resolve(n-1)
 let testprom2 = n => Promise.resolve(n-2)
@@ -29,6 +30,7 @@ let test = async () => {
  console.log('Result: ', rslt)
 }
 test()
+// [0,0]
 ```
 
 ## Array manipulation functions
@@ -40,13 +42,13 @@ R.pipe(
   fps.append(2),
   fps.append(3),
   )(1)
-```
+// [ 1, 2, 3 ]
 
-```javascript
 R.pipe(
-  fps.prepend(30),
-  fps.prepend(217),
-  )(10)
+  fps.prepend(2),
+  fps.prepend(3),
+  )(1)
+// [ 3, 2, 1 ]
 ```
 
 ### Append and Prepend result of fcns on specified input  
@@ -61,26 +63,31 @@ R.pipe(
   fps.appendUseNth(1)(testfn1),
   fps.appendUseNth(2)(testfn2),
   )([0,1,2])
+// [ 0, 1, 2, 2, 4 ]
 
 R.pipe(
   fps.prependUseNth(1)(testfn1),
   fps.prependUseNth(2)(testfn2),
   )([0,1,2])
+// [ 3, 2, 0, 1, 2 ]
 ```
 
 ### Insert result of fcn on input array member  
 ```javascript
 R.pipe(
-  fps.insertUseNth(1)(testfn1),
-  fps.insertUseNth(2)(testfn2),
+  fps.insertUseNth(1)(1)(testfn1),
+  fps.insertUseNth(2)(2)(testfn2),
   )([0,1,2])
+// [ 0, 2, 3, 1, 2 ]
 ```
 
 ### runN and runAll run function on some or all array members
 The arity must be correct, nothing fancy going on here.
 ```javascript
 fps.runAll(a => b => c => d => e => a+b+c+d+e)([0,1,2,3,4])
+// 10
 fps.runN(3)(a => b => c => a+b+c)([0,1,2,3,4])
+// 9
 ```
 
 ## Regex functions
@@ -98,7 +105,9 @@ toRegex uses what you pass verbatim, getRegex escaped all special
 characters except period.  
 ```javascript
 fps.toRegex('i')('abc*(ghi+)?')
-fps.getRegex('def*+?[]()ghi')
+//  /abc*(ghi+)?/i
+fps.getRegex('abc*+?[]()ghi')
+//  /abc\*\+\?\[\]\(\)ghi/i
 ```
 
 ## Conversions and Type testing
@@ -110,7 +119,9 @@ regexp, function, undefined
 ### Check the type of a passed object  
 ```javascript
 fps.isTypeof('object')({})
+// true
 fps.isTypeof('object')({a:1, b:2})
+// true
 ```
 
 ### Check if the types of two objects match  
@@ -127,6 +138,7 @@ fps.typeMatch(null)(undefined)
 ### Convert string to JSON
 ```javascript
 fps.toJSON('{"a":1,"b":[1,2,3],"c":3}')
+//   { a: 1, b: [ 1, 2, 3 ], c: 3 }
 ```
 
 ### Convert string to number 
@@ -152,9 +164,13 @@ fps.toDate('1453-05-29')
 ### Convert to array accounting for various scenarios
 ```javascript
 fps.toArray(5)
+// [ 5 ]
 fps.toArray('test string')
+// [ 'test string' ]
 fps.toArray({a: 1})
+// [ {a: 1} ]
 fps.toArray([1,2,3])
+// [ 1, 2, 3 ]
 ```
 
 ## Math functions
@@ -163,7 +179,8 @@ of dividing by the value passed first without R.flip. Not very useful.
 
 ```javascript
 R.pipe(
-  fps.subtract(3)
-  fps.divide(3)
+  fps.subtract(3),
+  fps.divide(3),
 )(12)
+// 3
 ```
