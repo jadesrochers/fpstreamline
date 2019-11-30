@@ -1,5 +1,5 @@
-const R = require('ramda')
-const {strSearchBool} = require('./strings')
+import * as R from 'ramda' 
+import { strSearchBool } from './strings'
 
 const isTypeof = R.curry((type,input) => (R.toLower(R.type(input)) === R.toLower(type)))
 
@@ -24,11 +24,11 @@ const toArray = input => {
   return Array.isArray(input) ? input : Array.of(input)
 }
 
-exports.isTypeof = isTypeof
-exports.typeMatch = typeMatch
-exports.toJSON = toJSON
-exports.strToNum = strToNum
-exports.toDate = toDate
-exports.toArray = toArray
+/* exports.isTypeof = isTypeof */
+/* exports.typeMatch = typeMatch */
+/* exports.toJSON = toJSON */
+/* exports.strToNum = strToNum */
+/* exports.toDate = toDate */
+/* exports.toArray = toArray */
 
-
+export { isTypeof, typeMatch, toJSON, strToNum, toDate, toArray }

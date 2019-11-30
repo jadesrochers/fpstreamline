@@ -1,4 +1,4 @@
-const R = require('ramda')
+import * as R from 'ramda' 
 
 const concat = R.curry((addon,existing) => (existing.concat(addon)))
 
@@ -23,13 +23,14 @@ const getSearch = R.pipe(
   R.replace(/ /g,''),
 )
 
-exports.concat = concat
-exports.strSearchBool = strSearchBool
-exports.strRemoveSpecial = strRemoveSpecial
-exports.regexEscapeAll = regexEscapeAll
-exports.regexEscapeExPer = regexEscapeExPer
-exports.toRegex = toRegex
-exports.getRegex = getRegex
-exports.getSearch = getSearch
+/* exports.concat = concat */
+/* exports.strSearchBool = strSearchBool */
+/* exports.strRemoveSpecial = strRemoveSpecial */
+/* exports.regexEscapeAll = regexEscapeAll */
+/* exports.regexEscapeExPer = regexEscapeExPer */
+/* exports.toRegex = toRegex */
+/* exports.getRegex = getRegex */
+/* exports.getSearch = getSearch */
 
+export { concat, strSearchBool, strRemoveSpecial, regexEscapeAll, regexEscapeExPer, toRegex, getRegex, getSearch }
 

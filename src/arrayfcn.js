@@ -1,4 +1,4 @@
-const R = require('ramda')
+import * as R from 'ramda' 
 
 // Accumulate values
 const flatArr = n => {
@@ -59,11 +59,11 @@ const runN = R.curry((n,fn,argarr) => {
 })
 
 // Act on arrays in a function Pipe
-exports.append = append
-exports.prepend = prepend
-exports.appendUseNth = appendUseNth
-exports.prependUseNth = prependUseNth
-exports.insertUseNth = insertUseNth
-exports.runAll = runAll
-exports.runN = runN
-
+/* exports.append = append */
+/* exports.prepend = prepend */
+/* exports.appendUseNth = appendUseNth */
+/* exports.prependUseNth = prependUseNth */
+/* exports.insertUseNth = insertUseNth */
+/* exports.runAll = runAll */
+/* exports.runN = runN */
+export { append, prepend, appendUseNth, prependUseNth, insertUseNth, runAll, runN }

@@ -6,5 +6,5 @@ const pipeAsync = (...fns) => x => fns.reduce(async (state, fn) => {
     return await curr; 
   } }, global.Promise.resolve(x));
 
-exports.pipeAsync = pipeAsync
+export { pipeAsync }
 

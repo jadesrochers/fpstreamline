@@ -1,15 +1,15 @@
-const arr = require('./src/arrayfcn')
-const conv = require('./src/conversions')
-const log = require('./src/logging')
-const math = require('./src/math')
-const pipe = require('./src/pipeAsync')
-const string = require('./src/strings')
+export { append, prepend, appendUseNth, prependUseNth, insertUseNth, runAll, runN } from './src/arrayfcn'
+export { isTypeof, typeMatch, toJSON, strToNum, toDate, toArray } from './src/conversions'
+export { trace, tracePretty, consoleLog, consoleWarn, consoleErr, errorIf } from './src/logging'
+export { divide, subtract } from './src/math'
+export { pipeAsync } from './src/pipeAsync'
+export {  concat, strSearchBool, strRemoveSpecial, regexEscapeAll, regexEscapeExPer, toRegex, getRegex, getSearch } from './src/strings'
 
-let combine
-combine = {...combine,...arr}
-combine = {...combine,...conv}
-combine = {...combine,...log}
-combine = {...combine,...math}
-combine = {...combine,...pipe}
-combine = {...combine,...string}
-module.exports = combine 
+/* let combine */
+/* combine = {...combine,...arr} */
+/* combine = {...combine,...conv} */
+/* combine = {...combine,...log} */
+/* combine = {...combine,...math} */
+/* combine = {...combine,...pipe} */
+/* combine = {...combine,...string} */
+/* export { combine } */ 

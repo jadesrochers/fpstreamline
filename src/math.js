@@ -1,7 +1,9 @@
-const R = require('ramda')
+import * as R from 'ramda' 
 
 const divide = R.curry((denom,numerate) => (numerate / denom));
 const subtract = R.curry((minus,input) => (input - minus))
 
-exports.divide = divide
-exports.subtract = subtract
+/* exports.divide = divide */
+/* exports.subtract = subtract */
+
+export { divide, subtract }

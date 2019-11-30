@@ -1,4 +1,4 @@
-const R = require('ramda')
+import * as R from 'ramda' 
 
 const consoleLog = statement => console.log(statement)
 const consoleWarn = statement => console.warn(statement)
@@ -23,10 +23,11 @@ const errorIf = R.curry((testfcn,input) => {
   }
 })
 
-exports.trace = trace
-exports.tracePretty = tracePretty
-exports.consoleLog = consoleLog
-exports.consoleWarn = consoleWarn
-exports.consoleErr = consoleErr
-exports.errorIf = errorIf
+/* exports.trace = trace */
+/* exports.tracePretty = tracePretty */
+/* exports.consoleLog = consoleLog */
+/* exports.consoleWarn = consoleWarn */
+/* exports.consoleErr = consoleErr */
+/* exports.errorIf = errorIf */
 
+export { trace, tracePretty, consoleLog, consoleWarn, consoleErr, errorIf }
