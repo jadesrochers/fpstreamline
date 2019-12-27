@@ -109,6 +109,14 @@ fps.toRegex('i')('abc*(ghi+)?')
 fps.getRegex('abc*+?[]()ghi')
 //  /abc\*\+\?\[\]\(\)ghi/i
 ```
+### Search functions
+strSearchBool performs a search of the string using a regex but returns just a boolean of whether a match was found, not how many, where, or anything else.
+```javascript
+fps.strSearchBool(/abc/)('filler abc filler')
+// true
+fps.strSearchBool(/abc/)('filler Abc filler')
+// false
+```
 
 ## Conversions and Type testing
 These are mostly just wrappers around other functions to  
