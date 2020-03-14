@@ -3,8 +3,8 @@
     "version": "0.1.5",
     "license": "Apache-2.0",
     "author": "Jared Desrochers",
-    "main": "build/cjs.js",
-    "module": "build/esm.js",
+    "main": "dist/bundle.js",
+    "sideEffects": false,
     "repository": {
         "type": "git",
         "url": "https://github.com/jadesrochers/fpstreamline.git"
@@ -12,25 +12,27 @@
     "description": "Functional programming additions to pass arrays, manipulate data",
     "keywords": [],
     "dependencies": {
-        "ramda": "^0.26.1"
+        "ramda": "^0.27.0"
     },
     "scripts": {
         "test": "jest",
-        "build": "rollup -c"
+        "build": "webpack --config ./webpack.config.js --display-modules",
+        "profile": "webpack --config ./webpack.config.js --profile --json > webpack-stats.json",
+        "packagePatch": "npm run test && npm run build && npm version patch && npm publish && git push -u origin master",
+        "updatePatch": "npm update && npm run test && npm run build && npm version patch && npm publish && git push -u origin master",
+        "packageMinor": "npm run test && npm run build && npm version patch && npm publish && git push -u origin master",
+        "CommitandPackage": "./CommitandPackage.sh"
     },
     "devDependencies": {
-        "@babel/core": "^7.7.4",
-        "@babel/plugin-transform-runtime": "^7.7.4",
-        "@babel/preset-env": "^7.7.4",
-        "@babel/runtime": "^7.7.4",
+        "@babel/core": "^7.8.7",
+        "@babel/plugin-transform-runtime": "^7.8.3",
+        "@babel/preset-env": "^7.8.7",
+        "@babel/runtime": "^7.8.7",
         "babel-loader": "^8.0.6",
-        "eslint": "^6.4.0",
-        "eslint-config-problems": "^3.0.1",
+        "eslint": "^6.8.0",
+        "eslint-config-problems": "^3.1.0",
         "jest": "^24.9.0",
-        "rollup": "^1.27.6",
-        "rollup-plugin-babel": "^4.3.3",
-        "rollup-plugin-commonjs": "^10.1.0",
-        "rollup-plugin-filesize": "^6.2.1",
-        "rollup-plugin-node-resolve": "^5.2.0"
+        "webpack": "^4.42.0",
+        "webpack-cli": "^3.3.11"
     }
 }
