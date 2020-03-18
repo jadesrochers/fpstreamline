@@ -1,5 +1,5 @@
 const R = require('ramda')
-const fps = require('./logging');
+const fps = require('../logging');
 
 beforeAll(() => {
   console.log = jest.fn()

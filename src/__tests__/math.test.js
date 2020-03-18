@@ -1,4 +1,4 @@
-const fps = require('./math')
+const fps = require('../math')
 
 test('minus test', () => {
   expect(fps.subtract(3)(10)).toBe(7)

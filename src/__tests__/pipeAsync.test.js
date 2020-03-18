@@ -1,4 +1,4 @@
-const fps = require('./pipeAsync');
+const fps = require('../pipeAsync');
 const R = require('ramda')
 
 let testprom1, testprom2, testprom3

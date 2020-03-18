@@ -1,4 +1,4 @@
-const fps = require('./strings');
+const fps = require('../strings');
 
 test('strSearchBool test', () => {
   expect(fps.strSearchBool(/abc/)('filler abc filler')).toBe(true)

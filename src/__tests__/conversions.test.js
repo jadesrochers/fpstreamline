@@ -1,4 +1,4 @@
-const fps = require('./conversions');
+const fps = require('../conversions');
 
 test('isTypeof test', () => {
   expect(fps.isTypeof('object')({})).toBe(true)

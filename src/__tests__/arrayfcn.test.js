@@ -1,4 +1,4 @@
-const fps = require('./arrayfcn');
+const fps = require('../arrayfcn');
 const R = require('ramda')
 
 let testfn1, testfn2, testfn3

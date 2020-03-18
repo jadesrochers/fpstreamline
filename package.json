@@ -3,27 +3,35 @@
     "version": "0.1.6",
     "license": "Apache-2.0",
     "author": "Jared Desrochers",
-    "main": "dist/bundle.js",
+    "module": "es/index.js",
+    "main": "dist/fps-cjs.js",
     "sideEffects": false,
     "repository": {
         "type": "git",
         "url": "https://github.com/jadesrochers/fpstreamline.git"
     },
+    "files": [
+        "es/",
+        "dist/",
+        "README.md",
+        "LICENSE"
+    ],
     "description": "Functional programming additions to pass arrays, manipulate data",
     "keywords": [],
     "dependencies": {
         "ramda": "^0.27.0"
     },
     "scripts": {
-        "test": "jest",
-        "build": "webpack --config ./webpack.config.js --display-modules",
-        "profile": "webpack --config ./webpack.config.js --profile --json > webpack-stats.json",
-        "packagePatch": "npm run test && npm run build && npm version patch && npm publish && git push -u origin master",
+        "test": "BABEL_ENV=test jest",
+        "build-es": "BABEL_ENV=es6 babel --out-dir es --ignore '**/__tests__/','**/enzyme.js'  src",
+        "build-cjs-roll": "BABEL_ENV=cjs rollup --config ./rollup.config.js",
+        "packagePatch": "npm run test && npm run build-es && npm run build-cjs-roll && npm version patch && npm publish && git push -u origin master",
+        "packageMinor": "npm run test && npm run build-es && npm run build-cjs-roll && npm version patch && npm publish && git push -u origin master",
         "updatePatch": "npm update && npm run test && npm run build && npm version patch && npm publish && git push -u origin master",
-        "packageMinor": "npm run test && npm run build && npm version patch && npm publish && git push -u origin master",
         "CommitandPackage": "./CommitandPackage.sh"
     },
     "devDependencies": {
+        "@babel/cli": "^7.8.4",
         "@babel/core": "^7.8.7",
         "@babel/plugin-transform-runtime": "^7.8.3",
         "@babel/preset-env": "^7.8.7",
@@ -32,6 +40,12 @@
         "eslint": "^6.8.0",
         "eslint-config-problems": "^3.1.0",
         "jest": "^24.9.0",
+        "rollup": "^2.0.6",
+        "rollup-plugin-babel": "^4.4.0",
+        "rollup-plugin-commonjs": "^10.1.0",
+        "rollup-plugin-filesize": "^6.2.1",
+        "rollup-plugin-node-resolve": "^5.2.0",
+        "rollup-plugin-terser": "^5.3.0",
         "webpack": "^4.42.0",
         "webpack-cli": "^3.3.11"
     }
