@@ -24,7 +24,7 @@
     "scripts": {
         "test": "BABEL_ENV=test jest",
         "build-es": "BABEL_ENV=es6 babel --out-dir es --ignore '**/__tests__/','**/enzyme.js'  src",
-        "build-cjs-roll": "BABEL_ENV=cjs rollup --config ./rollup.config.js",
+        "build-cjs-roll": "BABEL_ENV=cjs rollup --config ./rollup.config.mjs",
         "packagePatch": "npm run test && npm run build-es && npm run build-cjs-roll && npm version patch && npm publish && git push -u origin master",
         "packageMinor": "npm run test && npm run build-es && npm run build-cjs-roll && npm version patch && npm publish && git push -u origin master",
         "updatePatch": "npm update && npm run test && npm run build && npm version patch && npm publish && git push -u origin master",
