@@ -19,7 +19,7 @@
     "description": "Functional programming additions to pass arrays, manipulate data",
     "keywords": [],
     "dependencies": {
-        "ramda": "^0.27.0"
+        "ramda": "^0.28.0"
     },
     "scripts": {
         "test": "BABEL_ENV=test jest",
@@ -36,17 +36,17 @@
         "@babel/plugin-transform-runtime": "^7.8.3",
         "@babel/preset-env": "^7.8.7",
         "@babel/runtime": "^7.8.7",
-        "babel-loader": "^8.0.6",
-        "eslint": "^6.8.0",
-        "eslint-config-problems": "^3.1.0",
-        "jest": "^24.9.0",
-        "rollup": "^2.0.6",
-        "rollup-plugin-babel": "^4.4.0",
-        "rollup-plugin-commonjs": "^10.1.0",
-        "rollup-plugin-filesize": "^6.2.1",
-        "rollup-plugin-node-resolve": "^5.2.0",
-        "rollup-plugin-terser": "^5.3.0",
-        "webpack": "^4.42.0",
-        "webpack-cli": "^3.3.11"
+        "babel-loader": "^9.0.0",
+        "eslint": "^8.0.0",
+        "eslint-config-problems": "^7.0.0",
+        "jest": "^29.0.0",
+        "rollup": "^3.0.0",
+        "rollup-plugin-filesize": "^10.0.0",
+        "@rollup/plugin-babel": "^6.0.0",
+        "@rollup/plugin-commonjs": "^24.0.0",
+        "@rollup/plugin-node-resolve": "^15.0.0",
+        "@rollup/plugin-terser": "^0.4.0",
+        "webpack": "^5.0.0",
+        "webpack-cli": "^5.0.0"
     }
 }
